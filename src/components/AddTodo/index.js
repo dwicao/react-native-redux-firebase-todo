@@ -23,7 +23,7 @@ const AddTodo = props => {
 
 	const _onSubmitEditing = () => {
 		if (textValue.length > 0) {
-			actions.addTodo(textValue);
+			actions.startAddTodo(textValue);
 		}
 		textInput.clear();
 	}
