@@ -29,7 +29,7 @@ const List = props => {
     const doneOrNot = todo.isDone ? leftActiveIcon : leftUnactiveIcon;
     const starredOrNot = todo.isStarred ? rightActiveIcon : rightUnactiveIcon;
     const textDoneOrNot = todo.isDone ? styles.textDone : styles.textNotDone;
-    
+
     const deleteOrStar = () => {
       if (todo.isDone) {
         return <ButtonIcon onPress={onDelete(todo.id)}
@@ -46,7 +46,7 @@ const List = props => {
 
     return (
       <View key={index} style={styles.row}>
-        <ButtonIcon onPress={leftOnPress(todo.id)}
+        <ButtonIcon onPress={leftOnPress(todo.id, todo.isDone)}
           source={doneOrNot}
           style={styles.leftButton}
           width={25} height={25} />

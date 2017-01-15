@@ -9,13 +9,13 @@ const todoReducer = (state = [], action) => {
         ...state
       ];
 
-    case types.TOGGLE_TODO:
+    case types.UPDATE_TODO:
       return state.map(todo => {
         if(todo.id !== action.id) {
           return todo;
         }
-        
-        return Object.assign({}, todo, { isDone: !todo.isDone });
+
+        return Object.assign({}, todo, action.payload);
       });
 
     case types.EDIT_TODO:
@@ -32,7 +32,7 @@ const todoReducer = (state = [], action) => {
         if(todo.id !== action.id) {
           return todo;
         }
-        
+
         return Object.assign({}, todo, { isStarred: !todo.isStarred });
       });
 
@@ -41,7 +41,7 @@ const todoReducer = (state = [], action) => {
         if(todo.id !== action.id) {
           return todo;
         }
-        
+
         return Object.assign({}, todo, { isEditing: !todo.isEditing });
       });
 

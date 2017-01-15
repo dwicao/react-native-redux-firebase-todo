@@ -30,10 +30,22 @@ export function startAddTodo(text) {
   };
 }
 
-export function toggleTodo(id) {
+export function updateTodo(id, payload) {
   return {
-    type: types.TOGGLE_TODO,
-    id
+    type: types.UPDATE_TODO,
+    id,
+    payload
+  };
+}
+
+export function startToggleTodo(id, isDone ) {
+  return (dispatch, getState) => {
+    const todoRef = firebaseRef.child(`todos/${id}`);
+    const updates = { isDone };
+
+    return todoRef.update(updates).then(() => {
+      dispatch(updateTodo(id, updates));
+    });
   };
 }
 
