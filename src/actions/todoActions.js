@@ -1,18 +1,32 @@
 import * as types from './actionTypes';
+import firebase, {firebaseRef} from '../firebase';
 
 // generate unique id
-const uid = () => Math.random().toString(34).slice(2);
+// const uid = () => Math.random().toString(34).slice(2);
 
-export function addTodo(text) {
+export function addTodo(payload) {
   return {
     type: types.ADD_TODO,
-    payload: {
-      id: uid(),
+    payload
+  };
+}
+
+export function startAddTodo(text) {
+  return (dispatch, getState) => {
+    const todo = {
+      text,
       isDone: false,
       isEditing: false,
-      isStarred: false,
-      text
-    }
+      isStarred: false
+    };
+    const todoRef = firebaseRef.child('todos').push(todo);
+
+    return todoRef.then(() => {
+      dispatch(addTodo({
+        id: todoRef.key,
+        ...todo
+      }));
+    });
   };
 }
 
