@@ -1,5 +1,6 @@
 # key
 android/gradle.properties
+src/firebase/index.js
 
 # OSX
 #
