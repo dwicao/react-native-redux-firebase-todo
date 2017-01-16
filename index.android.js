@@ -1,13 +1,13 @@
 import codePush from "react-native-code-push";
 import React, { Component } from 'react';
-import { AppRegistry, AsyncStorage } from 'react-native';
+import { AppRegistry } from 'react-native';
 import {Provider} from 'react-redux';
-import {persistStore} from 'redux-persist'
 import configureStore from './src/store/configureStore';
 import App from './src/components/';
+import * as actions from './src/actions/todoActions';
 
 const store = configureStore();
-persistStore(store, {storage: AsyncStorage});
+store.dispatch( actions.fetchTodos() );
 
 class todo extends Component {
   componentDidMount() {
