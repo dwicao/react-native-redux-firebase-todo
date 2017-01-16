@@ -5,9 +5,11 @@ import {Provider} from 'react-redux';
 import {persistStore} from 'redux-persist'
 import configureStore from './src/store/configureStore';
 import App from './src/components/';
+import * as actions from './src/actions/todoActions';
 
 const store = configureStore();
-persistStore(store, {storage: AsyncStorage});
+store.dispatch( actions.fetchTodos() );
+persistStore( store, {storage: AsyncStorage} );
 
 class todo extends Component {
   componentDidMount() {

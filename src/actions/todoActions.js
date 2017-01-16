@@ -11,6 +11,25 @@ export function addTodo(payload) {
   };
 }
 
+export function fetchTodos() {
+  return (dispatch, getState) => {
+    const todosRef = firebaseRef.child('todos');
+
+    return todosRef.once('value').then(snapshot => {
+      const todos = snapshot.val() || {};
+
+      Object.keys(todos).map(todoId => {
+        const parsedTodos = {
+          id: todoId,
+          ...todos[todoId]
+        };
+
+        dispatch(addTodo(parsedTodos));
+      });
+    });
+  };
+}
+
 export function startAddTodo(text) {
   return (dispatch, getState) => {
     const todo = {
