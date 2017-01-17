@@ -56,7 +56,7 @@ export function updateTodo(id, payload) {
   };
 }
 
-export function startToggleTodo(id, key, value) {
+export function startUpdateTodo(id, key, value) {
   return (dispatch, getState) => {
     const todoRef = firebaseRef.child(`todos/${id}`);
     let updates = {};

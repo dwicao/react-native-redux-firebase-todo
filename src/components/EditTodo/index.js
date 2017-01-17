@@ -23,6 +23,7 @@ const EditTodo = props => {
 
 	const _onPress = () => {
 		actions.editTodo(id, textValue);
+		actions.startUpdateTodo(id, 'text', textValue);
 		Actions.mainScreen({type: ActionConst.RESET});
 	}
 
