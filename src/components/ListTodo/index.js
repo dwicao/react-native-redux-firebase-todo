@@ -47,7 +47,7 @@ const TodoList = props => {
 
   const _leftOnPress = (id, isDone) => event => actions.startUpdateTodo(id, 'isDone', !isDone);
   const _rightOnPress = (id, isStarred) => event => actions.startUpdateTodo(id, 'isStarred', !isStarred);
-  const _onDelete = id => event => actions.removeTodo(id);
+  const _onDelete = id => event => actions.startRemoveTodo(id);
   const _textOnPress = (id, text) => event => {
     Actions.editScreen({
       type: ActionConst.PUSH,

@@ -1,8 +1,6 @@
 import * as types from './actionTypes';
 import firebase, {firebaseRef} from '../firebase';
 
-// generate unique id
-// const uid = () => Math.random().toString(34).slice(2);
 
 export function addTodo(payload) {
   return {
@@ -64,6 +62,16 @@ export function startUpdateTodo(id, key, value) {
 
     return todoRef.update(updates).then(() => {
       dispatch(updateTodo(id, updates));
+    });
+  };
+}
+
+export function startRemoveTodo(id) {
+  return (dispatch, getState) => {
+    const todosRef = firebaseRef.child(`todos/${id}`);
+
+    return todosRef.remove().then(() => {
+      dispatch(removeTodo(id));
     });
   };
 }
