@@ -35,7 +35,6 @@ export function startAddTodo(text) {
     const todo = {
       text,
       isDone: false,
-      isEditing: false,
       isStarred: false
     };
     const todoRef = firebaseRef.child('todos').push(todo);

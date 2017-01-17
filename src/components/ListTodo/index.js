@@ -49,7 +49,6 @@ const TodoList = props => {
   const _rightOnPress = (id, isStarred) => event => actions.startToggleTodo(id, 'isStarred', !isStarred);
   const _onDelete = id => event => actions.removeTodo(id);
   const _textOnPress = (id, text) => event => {
-    actions.toggleEditTodo(id);
     Actions.editScreen({
       type: ActionConst.PUSH,
       id,
