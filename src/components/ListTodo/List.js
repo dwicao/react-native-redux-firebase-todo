@@ -37,7 +37,7 @@ const List = props => {
                 style={styles.rightButton}
                 width={25} height={25} />
       } else {
-        return <ButtonIcon onPress={rightOnPress(todo.id)}
+        return <ButtonIcon onPress={rightOnPress(todo.id, todo.isStarred)}
                 source={starredOrNot}
                 style={styles.rightButton}
                 width={25} height={25} />

@@ -57,13 +57,42 @@ export function updateTodo(id, payload) {
   };
 }
 
-export function startToggleTodo(id, isDone ) {
+export function startToggleTodo(id, key, value) {
   return (dispatch, getState) => {
     const todoRef = firebaseRef.child(`todos/${id}`);
-    const updates = { isDone };
+    let updates = {};
+    updates[key] = value;
 
     return todoRef.update(updates).then(() => {
       dispatch(updateTodo(id, updates));
+    });
+  };
+}
+
+export function startSignup(email, password) {
+  return (dispatch, getState) => {
+    return firebase.auth().createUserWithEmailAndPassword(email, password).then(result => {
+      console.log('Signup worked', result);
+    }, error => {
+      console.log('Unable to auth', error);
+    });
+  };
+}
+
+export function startLogin(email, password) {
+  return (dispatch, getState) => {
+    return firebase.auth().signInWithEmailAndPassword(email, password).then(result => {
+      console.log('Login worked', result);
+    }, error => {
+      console.log('Unable to auth', error);
+    });
+  };
+}
+
+export function startLogout() {
+  return (dispatch, getState) => {
+    return firebase.auth().signOut().then(() => {
+      console.log('Logged out!');
     });
   };
 }

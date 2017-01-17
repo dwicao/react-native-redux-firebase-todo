@@ -7,7 +7,6 @@ import App from './src/components/';
 import * as actions from './src/actions/todoActions';
 
 const store = configureStore();
-store.dispatch( actions.fetchTodos() );
 
 class todo extends Component {
   componentDidMount() {

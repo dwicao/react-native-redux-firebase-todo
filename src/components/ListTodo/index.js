@@ -45,8 +45,8 @@ const TodoList = props => {
     visibilityFilter
   );
 
-  const _leftOnPress = (id, isDone) => event => actions.startToggleTodo(id, !isDone);
-  const _rightOnPress = id => event => actions.toggleStarTodo(id);
+  const _leftOnPress = (id, isDone) => event => actions.startToggleTodo(id, 'isDone', !isDone);
+  const _rightOnPress = (id, isStarred) => event => actions.startToggleTodo(id, 'isStarred', !isStarred);
   const _onDelete = id => event => actions.removeTodo(id);
   const _textOnPress = (id, text) => event => {
     actions.toggleEditTodo(id);
