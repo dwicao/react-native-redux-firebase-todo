@@ -11,16 +11,13 @@ import {
 	Platform,
 } from 'react-native';
 
-import Wallpaper from '../Wallpaper';
 import LoginUser from '../LoginUser';
 
 class LoginScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Wallpaper>
-					<LoginUser {...this.props}/>
-				</Wallpaper>
+				<LoginUser {...this.props}/>
 			</View>
 		);
 	}

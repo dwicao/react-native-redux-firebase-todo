@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import firebase, {firebaseRef} from '../firebase';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 
 export function addTodo(payload) {
@@ -88,18 +89,14 @@ export function startSignup(email, password) {
 
 export function startLogin(email, password) {
   return (dispatch, getState) => {
-    return firebase.auth().signInWithEmailAndPassword(email, password).then(result => {
-      console.log('Login worked', result);
-    }, error => {
-      console.log('Unable to auth', error);
-    });
+    return firebase.auth().signInWithEmailAndPassword(email, password);
   };
 }
 
 export function startLogout() {
   return (dispatch, getState) => {
     return firebase.auth().signOut().then(() => {
-      console.log('Logged out!');
+      Actions.loginScreen({type: ActionConst.RESET});
     });
   };
 }

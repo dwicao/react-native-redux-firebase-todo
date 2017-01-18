@@ -1,35 +1,19 @@
-import React, { PropTypes } from 'react';
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  StyleSheet,
-  Alert,
-} from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import ButtonSubmit from './ButtonSubmit';
+import Form from './Form';
+import Logo from './Logo';
+import SignupSection from './SignupSection';
+import Wallpaper from '../Wallpaper';
 
 const LoginUser = props => {
-  const {
-    todos,
-    actions,
-  } = props;
-
-  const _onPress = () => {
-    actions.startLogin('test@example.com', '12345678');
-  }
-
-  return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={_onPress} >
-        <Text>LOGIN</Text>
-      </TouchableOpacity>
-    </View>
-  );
+	return (
+		<Wallpaper>
+			<Logo {...props} />
+			<Form {...props} />
+			<SignupSection {...props} />
+			<ButtonSubmit {...props} />
+		</Wallpaper>
+	);
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default LoginUser;

@@ -13,16 +13,15 @@ export default class App extends Component {
           <Scene key="loginScreen"
 	        	animation='fade'
 	        	component={LoginScreen}
-	        	hideNavBar={true}/>
+	        	hideNavBar={true} initial />
 	        <Scene key="mainScreen"
 	        	animation='fade'
 	        	component={MainScreen}
-	        	hideNavBar={true}
-            initial />
+	        	hideNavBar={true} />
 	        <Scene key="editScreen"
 	        	animation='fade'
 	        	hideNavBar={true}
-	        	component={EditScreen}/>
+	        	component={EditScreen} />
 	      </Scene>
 	    </Router>
     );
