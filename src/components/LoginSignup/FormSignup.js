@@ -27,7 +27,7 @@ const FormSignup = props => {
 	};
 
 	return (
-		<KeyboardAvoidingView behavior='padding'
+		<KeyboardAvoidingView behavior='position'
 			style={styles.container}>
 			<UserInput source={usernameImg}
 				onChangeText={_onChangeEmailSignup}
