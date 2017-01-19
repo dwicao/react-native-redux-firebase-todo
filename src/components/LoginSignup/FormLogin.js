@@ -31,7 +31,7 @@ const FormLogin = props => {
 			style={styles.container}>
 			<UserInput source={usernameImg}
 				onChangeText={_onChangeEmailLogin}
-				placeholder='Username'
+				placeholder='Email'
 				autoCapitalize={'none'}
 				returnKeyType={'done'}
 				autoCorrect={false} />
