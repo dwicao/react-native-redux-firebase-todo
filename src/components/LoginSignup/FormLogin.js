@@ -12,15 +12,31 @@ import usernameImg from '../../icons/username.png';
 import passwordImg from '../../icons/password.png';
 
 const FormLogin = props => {
+	const {
+		todos,
+		actions,
+		formData,
+	} = props;
+
+	const _onChangeEmailLogin = value => {
+		actions.changeEmailLogin(value);
+	};
+
+	const _onChangePasswordLogin = value => {
+		actions.changePasswordLogin(value);
+	};
+
 	return (
 		<KeyboardAvoidingView behavior='padding'
 			style={styles.container}>
 			<UserInput source={usernameImg}
+				onChangeText={_onChangeEmailLogin}
 				placeholder='Username'
 				autoCapitalize={'none'}
 				returnKeyType={'done'}
 				autoCorrect={false} />
 			<UserInput source={passwordImg}
+				onChangeText={_onChangePasswordLogin}
 				secureTextEntry={true}
 				placeholder='Password'
 				returnKeyType={'done'}

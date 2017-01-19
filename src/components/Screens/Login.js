@@ -35,12 +35,14 @@ const styles = StyleSheet.create({
 LoginScreen.propTypes = {
 	todos: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired,
+	formData: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
 	return {
 		todos: state.todos,
 		visibilityFilter: state.visibilityFilter,
+		formData: state.formData,
 	};
 }
 

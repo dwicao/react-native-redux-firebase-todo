@@ -3,13 +3,6 @@ import firebase, {firebaseRef} from '../firebase';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
 
-export function addTodo(payload) {
-  return {
-    type: types.ADD_TODO,
-    payload
-  };
-}
-
 export function fetchTodos() {
   return (dispatch, getState) => {
     const todosRef = firebaseRef.child('todos');
@@ -44,14 +37,6 @@ export function startAddTodo(text) {
         ...todo
       }));
     });
-  };
-}
-
-export function updateTodo(id, payload) {
-  return {
-    type: types.UPDATE_TODO,
-    id,
-    payload
   };
 }
 
@@ -98,6 +83,49 @@ export function startLogout() {
     return firebase.auth().signOut().then(() => {
       Actions.loginScreen({type: ActionConst.RESET});
     });
+  };
+}
+
+export function changeEmailLogin(emailLogin) {
+  return {
+    type: types.CHANGE_EMAIL_LOGIN,
+    emailLogin
+  }
+}
+
+export function changeEmailSignup(emailSignup) {
+  return {
+    type: types.CHANGE_EMAIL_SIGNUP,
+    emailSignup
+  }
+}
+
+export function changePasswordLogin(passwordLogin) {
+  return {
+    type: types.CHANGE_PASSWORD_LOGIN,
+    passwordLogin
+  }
+}
+
+export function changePasswordSignup(passwordSignup) {
+  return {
+    type: types.CHANGE_PASSWORD_SIGNUP,
+    passwordSignup
+  }
+}
+
+export function addTodo(payload) {
+  return {
+    type: types.ADD_TODO,
+    payload
+  };
+}
+
+export function updateTodo(id, payload) {
+  return {
+    type: types.UPDATE_TODO,
+    id,
+    payload
   };
 }
 

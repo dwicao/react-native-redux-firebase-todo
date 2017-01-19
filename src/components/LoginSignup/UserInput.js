@@ -15,6 +15,7 @@ const UserInput = props => {
     autoCorrect,
     autoCapitalize,
     returnKeyType,
+		onChangeText,
   } = props;
 
   return (
@@ -22,6 +23,7 @@ const UserInput = props => {
 			<Image source={source}
 				style={styles.inlineImg} />
 			<TextInput style={styles.input}
+				onChangeText={onChangeText}
 				placeholder={placeholder}
 				secureTextEntry={secureTextEntry}
 				autoCorrect={autoCorrect}
@@ -40,6 +42,7 @@ UserInput.propTypes = {
 	autoCorrect: PropTypes.bool,
 	autoCapitalize: PropTypes.string,
 	returnKeyType: PropTypes.string,
+	onChangeText: PropTypes.func,
 };
 
 const DEVICE_WIDTH = Dimensions.get('window').width;

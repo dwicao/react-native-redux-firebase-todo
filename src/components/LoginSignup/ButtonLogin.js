@@ -43,13 +43,14 @@ export default class ButtonLogin extends Component {
 			}
 		).start();
 
-		const userLogin = this.props.actions.startLogin('test@example.com', '12345678');
+		const { todos, actions, formData } = this.props;
+		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
 
 		userLogin
 			.then(() => {
 				Actions.mainScreen();
 			}, error => {
-				Alert.alert('Login Error\nPlease try again!');
+				Alert.alert(JSON.stringify(error.message));
 			})
 			.then(() => {
 				this.setState({ isLoading: false });
