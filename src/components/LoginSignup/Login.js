@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ButtonLogin from './ButtonLogin';
-import Form from './Form';
+import FormLogin from './FormLogin';
 import Logo from './Logo';
 import Wallpaper from '../Wallpaper';
 
@@ -8,7 +8,7 @@ const Login = props => {
 	return (
 		<Wallpaper>
 			<Logo {...props} />
-			<Form {...props} />
+			<FormLogin {...props} />
 			<ButtonLogin {...props} />
 		</Wallpaper>
 	);

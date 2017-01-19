@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ButtonSignup from './ButtonSignup';
-import Form from './Form';
+import FormSignup from './FormSignup';
 import Logo from './Logo';
 import Wallpaper from '../Wallpaper';
 
@@ -8,7 +8,7 @@ const Signup = props => {
 	return (
 		<Wallpaper>
 			<Logo {...props} />
-			<Form {...props} />
+			<FormSignup {...props} />
 			<ButtonSignup {...props} />
 		</Wallpaper>
 	);

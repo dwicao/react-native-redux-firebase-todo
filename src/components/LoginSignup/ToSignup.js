@@ -9,7 +9,7 @@ import {
 import { Actions, ActionConst } from 'react-native-router-flux';
 
 
-const ToRegister = props => {
+const ToSignup = props => {
 	const {
 		todos,
 		actions,
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default ToRegister;
+export default ToSignup;

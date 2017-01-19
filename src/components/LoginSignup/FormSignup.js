@@ -11,7 +11,7 @@ import UserInput from './UserInput';
 import usernameImg from '../../icons/username.png';
 import passwordImg from '../../icons/password.png';
 
-const Form = props => {
+const FormSignup = props => {
 	return (
 		<KeyboardAvoidingView behavior='padding'
 			style={styles.container}>
@@ -40,4 +40,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default Form;
+export default FormSignup;

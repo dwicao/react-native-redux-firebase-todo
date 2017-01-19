@@ -11,7 +11,7 @@ import {
 	View,
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
-import ToRegister from './ToRegister';
+import ToSignup from './ToSignup';
 import spinner from '../../icons/loading.gif';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
@@ -76,7 +76,7 @@ export default class ButtonLogin extends Component {
 							}
 					</TouchableOpacity>
 				</Animated.View>
-				<ToRegister {...this.props} />
+				<ToSignup {...this.props} />
 			</View>
 		);
 	}
