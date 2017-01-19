@@ -64,11 +64,7 @@ export function startRemoveTodo(id) {
 
 export function startSignup(email, password) {
   return (dispatch, getState) => {
-    return firebase.auth().createUserWithEmailAndPassword(email, password).then(result => {
-      console.log('Signup worked', result);
-    }, error => {
-      console.log('Unable to auth', error);
-    });
+    return firebase.auth().createUserWithEmailAndPassword(email, password);
   };
 }
 
