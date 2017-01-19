@@ -11,14 +11,14 @@ import {
 	View,
 } from 'react-native';
 import { Actions, ActionConst } from 'react-native-router-flux';
-
+import ToRegister from './ToRegister';
 import spinner from '../../icons/loading.gif';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
 const MARGIN = 40;
 
-export default class ButtonSubmit extends Component {
+export default class ButtonLogin extends Component {
 	constructor() {
 		super();
 
@@ -76,6 +76,7 @@ export default class ButtonSubmit extends Component {
 							}
 					</TouchableOpacity>
 				</Animated.View>
+				<ToRegister {...this.props} />
 			</View>
 		);
 	}
@@ -84,20 +85,21 @@ export default class ButtonSubmit extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		top: -95,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
 	button: {
 		alignItems: 'center',
 		justifyContent: 'center',
-		backgroundColor: '#F035E0',
+		backgroundColor: '#E7BCAA',
 		height: MARGIN,
 		borderRadius: 20,
 		zIndex: 100,
 	},
 	text: {
 		color: 'white',
+		fontWeight: 'bold',
+		letterSpacing: 1,
 		backgroundColor: 'transparent',
 	},
 	image: {

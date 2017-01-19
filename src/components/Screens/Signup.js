@@ -11,13 +11,13 @@ import {
 	Platform,
 } from 'react-native';
 
-import Login from '../LoginSignup/Login';
+import Signup from '../LoginSignup/Signup';
 
-class LoginScreen extends Component {
+class SignupScreen extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Login {...this.props}/>
+				<Signup {...this.props}/>
 			</View>
 		);
 	}
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
 	}
 });
 
-LoginScreen.propTypes = {
+SignupScreen.propTypes = {
 	todos: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired,
 };
@@ -50,4 +50,4 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen);

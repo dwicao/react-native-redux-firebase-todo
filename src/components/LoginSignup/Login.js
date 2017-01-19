@@ -1,19 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import ButtonSubmit from './ButtonSubmit';
+import ButtonLogin from './ButtonLogin';
 import Form from './Form';
 import Logo from './Logo';
-import SignupSection from './SignupSection';
 import Wallpaper from '../Wallpaper';
 
-const LoginUser = props => {
+const Login = props => {
 	return (
 		<Wallpaper>
 			<Logo {...props} />
 			<Form {...props} />
-			<SignupSection {...props} />
-			<ButtonSubmit {...props} />
+			<ButtonLogin {...props} />
 		</Wallpaper>
 	);
 }
 
-export default LoginUser;
+export default Login;
