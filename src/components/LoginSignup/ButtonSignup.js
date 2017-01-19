@@ -44,9 +44,9 @@ export default class ButtonSignup extends Component {
 		).start();
 
 		const { todos, actions, formData } = this.props;
-		const userLogin = actions.startSignup(formData.emailSignup, formData.passwordSignup);
+		const userSignup = actions.startSignup(formData.emailSignup, formData.passwordSignup);
 
-		userLogin
+		userSignup
 			.then(result => {
 				Actions.mainScreen();
 			}, error => {

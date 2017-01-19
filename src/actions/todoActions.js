@@ -1,4 +1,5 @@
 import * as types from './actionTypes';
+import { Alert } from 'react-native';
 import firebase, {firebaseRef} from '../firebase';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
@@ -31,11 +32,15 @@ export function startAddTodo(text) {
     };
     const todoRef = firebaseRef.child('todos').push(todo);
 
-    return todoRef.then(() => {
-      dispatch(addTodo({
-        id: todoRef.key,
-        ...todo
-      }));
+    dispatch(addTodo({
+      id: todoRef.key,
+      ...todo
+    }));
+
+    todoRef.then(success => {
+      return;
+    }, error => {
+      Alert.alert(JSON.stringify(error.message));
     });
   };
 }
@@ -45,9 +50,14 @@ export function startUpdateTodo(id, key, value) {
     const todoRef = firebaseRef.child(`todos/${id}`);
     let updates = {};
     updates[key] = value;
+    let noUpdates = {};
+    noUpdates[key] = !value;
 
-    return todoRef.update(updates).then(() => {
-      dispatch(updateTodo(id, updates));
+    dispatch(updateTodo(id, updates));
+    todoRef.update(updates).then(success => {
+      return;
+    }, error => {
+      Alert.alert(JSON.stringify(error.message));
     });
   };
 }
@@ -56,8 +66,11 @@ export function startRemoveTodo(id) {
   return (dispatch, getState) => {
     const todosRef = firebaseRef.child(`todos/${id}`);
 
-    return todosRef.remove().then(() => {
-      dispatch(removeTodo(id));
+    dispatch(removeTodo(id));
+    todosRef.remove().then(success => {
+      return;
+    }, error => {
+      Alert.alert(JSON.stringify(error.message));
     });
   };
 }

@@ -47,7 +47,7 @@ export default class ButtonLogin extends Component {
 		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
 
 		userLogin
-			.then(() => {
+			.then(result => {
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));
