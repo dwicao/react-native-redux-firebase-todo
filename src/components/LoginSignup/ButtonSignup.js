@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import firebase, {firebaseRef} from '../../firebase';
 import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
@@ -47,7 +48,21 @@ export default class ButtonSignup extends Component {
 		const userSignup = actions.startSignup(formData.emailSignup, formData.passwordSignup);
 
 		userSignup
-			.then(result => {
+			.then(snapshot => {
+				const usersRef = firebaseRef.child('users');
+				const todosRef = firebaseRef.child('todos');
+				const todo = {
+					isDone: false,
+					isStarred: false,
+					text: `Welcome ${snapshot.email}`
+				}
+
+				todosRef.child(snapshot.uid).push(todo);
+
+				usersRef.child(snapshot.uid).set({
+					email: formData.emailSignup,
+				});
+
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));

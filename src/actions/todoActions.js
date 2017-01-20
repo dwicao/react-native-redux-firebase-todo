@@ -25,19 +25,20 @@ export function fetchTodos() {
 
 export function startAddTodo(text) {
   return (dispatch, getState) => {
+    const UID = firebase.auth().currentUser.uid;
     const todo = {
       text,
       isDone: false,
       isStarred: false
     };
-    const todoRef = firebaseRef.child('todos').push(todo);
+    const todoRef = firebaseRef.child(`todos/${UID}`).push(todo);
 
     dispatch(addTodo({
       id: todoRef.key,
       ...todo
     }));
 
-    todoRef.then(success => {
+    todoRef.then(snapshot => {
       return;
     }, error => {
       Alert.alert(JSON.stringify(error.message));
@@ -47,14 +48,14 @@ export function startAddTodo(text) {
 
 export function startUpdateTodo(id, key, value) {
   return (dispatch, getState) => {
-    const todoRef = firebaseRef.child(`todos/${id}`);
+    const UID = firebase.auth().currentUser.uid;
+    const todoRef = firebaseRef.child(`todos/${UID}/${id}`);
     let updates = {};
     updates[key] = value;
-    let noUpdates = {};
-    noUpdates[key] = !value;
 
     dispatch(updateTodo(id, updates));
-    todoRef.update(updates).then(success => {
+
+    todoRef.update(updates).then(snapshot => {
       return;
     }, error => {
       Alert.alert(JSON.stringify(error.message));
@@ -64,10 +65,12 @@ export function startUpdateTodo(id, key, value) {
 
 export function startRemoveTodo(id) {
   return (dispatch, getState) => {
-    const todosRef = firebaseRef.child(`todos/${id}`);
+    const UID = firebase.auth().currentUser.uid;
+    const todoRef = firebaseRef.child(`todos/${UID}/${id}`);
 
     dispatch(removeTodo(id));
-    todosRef.remove().then(success => {
+
+    todoRef.remove().then(snapshot => {
       return;
     }, error => {
       Alert.alert(JSON.stringify(error.message));
