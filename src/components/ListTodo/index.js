@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
   ScrollView,
@@ -80,12 +80,5 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-
-TodoList.propTypes = {
-  style: PropTypes.number,
-  todos: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired,
-  visibilityFilter: PropTypes.string.isRequired,
-};
 
 export default TodoList;

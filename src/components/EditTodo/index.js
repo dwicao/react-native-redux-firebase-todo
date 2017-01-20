@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
 	StyleSheet,
@@ -50,13 +50,6 @@ const EditTodo = props => {
 		</View>
 	);
 }
-
-EditTodo.propTypes = {
-	todos: PropTypes.array,
-	actions: PropTypes.object.isRequired,
-	id: PropTypes.string.isRequired,
-	text: PropTypes.string.isRequired,
-};
 
 const styles = StyleSheet.create({
 	container: {

@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React from 'react';
 import ButtonLogin from './ButtonLogin';
 import FormLogin from './FormLogin';
 import Logo from './Logo';
@@ -7,9 +7,9 @@ import Wallpaper from '../Wallpaper';
 const Login = props => {
 	return (
 		<Wallpaper>
-			<Logo {...props} />
-			<FormLogin {...props} />
-			<ButtonLogin {...props} />
+			<Logo />
+			<FormLogin />
+			<ButtonLogin />
 		</Wallpaper>
 	);
 }

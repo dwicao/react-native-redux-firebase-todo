@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import Dimensions from 'Dimensions';
 import {
 	View,
@@ -70,10 +70,5 @@ const styles = StyleSheet.create({
 		backgroundColor: 'rgba(0, 0, 0, 0.3)',
 	},
 });
-
-AddTodo.propTypes = {
-	todos: PropTypes.array.isRequired,
-	actions: PropTypes.object.isRequired,
-};
 
 export default AddTodo;
