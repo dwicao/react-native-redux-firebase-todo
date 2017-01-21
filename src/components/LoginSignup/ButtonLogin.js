@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Dimensions from 'Dimensions';
+import firebase from 'firebase';
 import {
 	StyleSheet,
 	TouchableOpacity,
@@ -45,9 +46,12 @@ export default class ButtonLogin extends Component {
 
 		const { todos, actions, formData } = this.props;
 		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
+		const {currentUser} = firebase.auth();
 
 		userLogin
 			.then(result => {
+				actions.deleteAllTodo();
+				actions.fetchTodos(currentUser.uid);
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));

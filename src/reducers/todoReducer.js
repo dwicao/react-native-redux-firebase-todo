@@ -50,6 +50,11 @@ const todoReducer = (state = [], action) => {
         return todo.id !== action.id;
       });
 
+    case types.DELETE_ALL_TODO:
+      return state.filter(todo => {
+        return false;
+      });
+
     case types.FILTER_TODO:
       return state.filter(todo => {
         return todo.visibilityFilter === action.filter;

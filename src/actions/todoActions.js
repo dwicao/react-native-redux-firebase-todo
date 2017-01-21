@@ -4,9 +4,9 @@ import firebase, {firebaseRef} from '../firebase';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
 
-export function fetchTodos() {
+export function fetchTodos(uid) {
   return (dispatch, getState) => {
-    const todosRef = firebaseRef.child('todos');
+    const todosRef = firebaseRef.child(`todos/${uid}`);
 
     return todosRef.once('value').then(snapshot => {
       const todos = snapshot.val() || {};
@@ -139,6 +139,12 @@ export function updateTodo(id, payload) {
     id,
     payload
   };
+}
+
+export function deleteAllTodo() {
+  return {
+    type: types.DELETE_ALL_TODO
+  }
 }
 
 export function toggleStarTodo(id) {
