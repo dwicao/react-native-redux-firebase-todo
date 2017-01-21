@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import firebase, {firebaseRef} from '../../firebase';
 import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
