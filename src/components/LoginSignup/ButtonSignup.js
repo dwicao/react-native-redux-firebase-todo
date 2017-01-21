@@ -63,6 +63,8 @@ export default class ButtonSignup extends Component {
 					email: formData.emailSignup,
 				});
 
+				actions.deleteAllTodo();
+				actions.fetchTodos(snapshot.uid);
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));
