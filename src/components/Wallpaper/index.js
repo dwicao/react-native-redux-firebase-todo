@@ -20,14 +20,15 @@ class Wallpaper extends Component {
 			visibilityFilter,
 		} = this.props;
 
-		const renderChildren = (Array.isArray(children)) ?
+		const renderChildren = Array.isArray(children) ?
 			children.map((child, key) => React.cloneElement(child, {
 				key,
 				todos,
 				actions,
 				formData,
 				visibilityFilter,
-			})) :
+			}))
+			:
 			React.cloneElement(children, {
 				todos,
 				actions,

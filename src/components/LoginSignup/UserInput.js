@@ -16,6 +16,7 @@ const UserInput = props => {
     autoCapitalize,
     returnKeyType,
 		onChangeText,
+		value,
   } = props;
 
   return (
@@ -29,6 +30,7 @@ const UserInput = props => {
 				autoCorrect={autoCorrect}
 				autoCapitalize={autoCapitalize}
 				returnKeyType={returnKeyType}
+				value={value}
 				placeholderTextColor='white'
 				underlineColorAndroid='transparent' />
 		</View>

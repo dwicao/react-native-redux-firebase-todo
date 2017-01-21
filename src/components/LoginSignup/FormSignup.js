@@ -31,12 +31,14 @@ const FormSignup = props => {
 			style={styles.container}>
 			<UserInput source={usernameImg}
 				onChangeText={_onChangeEmailSignup}
+				value={formData.emailSignup}
 				placeholder='Email'
 				autoCapitalize={'none'}
 				returnKeyType={'done'}
 				autoCorrect={false} />
 			<UserInput source={passwordImg}
 				onChangeText={_onChangePasswordSignup}
+				value={formData.passwordSignup}
 				secureTextEntry={true}
 				placeholder='Password'
 				returnKeyType={'done'}

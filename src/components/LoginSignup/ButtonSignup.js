@@ -70,6 +70,8 @@ export default class ButtonSignup extends Component {
 			.then(() => {
 				this.setState({ isLoading: false });
 				this.buttonAnimated.setValue(0);
+				actions.changeEmailSignup('');
+				actions.changePasswordSignup('');
 			});
 	}
 
