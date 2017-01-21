@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import Dimensions from 'Dimensions';
 import {
 	StyleSheet,
 	KeyboardAvoidingView,
 	View,
+	Platform,
 } from 'react-native';
 
 import UserInput from './UserInput';
 
 import usernameImg from '../../icons/username.png';
 import passwordImg from '../../icons/password.png';
+
+const behavior = (Platform.OS === 'ios') ? 'position' : 'padding';
 
 const FormSignup = props => {
 	const {
@@ -27,7 +29,7 @@ const FormSignup = props => {
 	};
 
 	return (
-		<KeyboardAvoidingView behavior='position'
+		<KeyboardAvoidingView behavior={behavior}
 			style={styles.container}>
 			<UserInput source={usernameImg}
 				onChangeText={_onChangeEmailSignup}
@@ -47,9 +49,6 @@ const FormSignup = props => {
 		</KeyboardAvoidingView>
 	);
 }
-
-const DEVICE_WIDTH = Dimensions.get('window').width;
-const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
 	container: {
