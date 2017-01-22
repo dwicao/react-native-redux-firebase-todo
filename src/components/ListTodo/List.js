@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Text,
   View,
+  Platform,
 } from 'react-native';
 
 import ButtonIcon from '../Buttons/ButtonIcon';
@@ -71,9 +72,12 @@ const List = props => {
   );
 };
 
+const marginBottom = (Platform.OS === 'ios') ? 20 : 0;
+
 const styles = StyleSheet.create({
   scroll: {
     flex: 1,
+    marginBottom: marginBottom,
   },
   textButton: {
     flex: 1,
