@@ -4,13 +4,13 @@ import Container from '../Container';
 import AddTodo from '../AddTodo';
 import Visibility from '../Visibility';
 import ListTodo from '../ListTodo';
-import ControlPanel from '../ControlPanel';
+import MenuScreen from './Menu';
 
 const Main = props =>  {
 		return (
 			<Drawer
 	      type="overlay"
-	      content={<ControlPanel />}
+	      content={<MenuScreen />}
 	      side='right'
 	      tapToClose={true}
 	      openDrawerOffset={0.3} // 20% gap on the right side of drawer
