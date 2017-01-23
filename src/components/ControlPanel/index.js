@@ -6,16 +6,17 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
+import Container from '../Container';
 
 const ControlPanel = props => {
   const _onPress = () => Alert.alert('YAYAYA');
 
   return (
-    <View style={styles.container}>
+    <Container wallpaper={false} style={styles.container}>
       <TouchableOpacity onPress={_onPress} style={styles.button}>
         <Text>COBA!</Text>
       </TouchableOpacity>
-    </View>
+    </Container>
   );
 }
 

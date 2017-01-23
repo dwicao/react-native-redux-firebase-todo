@@ -1,13 +1,13 @@
 import React from 'react';
 
-import Wallpaper from '../Wallpaper';
+import Container from '../Container';
 import EditTodo from '../EditTodo';
 
 const EditScreen = props =>  {
 		return (
-				<Wallpaper>
+				<Container>
 					<EditTodo {...props} />
-				</Wallpaper>
+				</Container>
 		);
 }
 

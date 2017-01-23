@@ -2,15 +2,15 @@ import React from 'react';
 import ButtonLogin from './ButtonLogin';
 import FormLogin from './FormLogin';
 import Logo from './Logo';
-import Wallpaper from '../Wallpaper';
+import Container from '../Container';
 
 const Login = props => {
 	return (
-		<Wallpaper>
+		<Container>
 			<Logo />
 			<FormLogin />
 			<ButtonLogin />
-		</Wallpaper>
+		</Container>
 	);
 }
 

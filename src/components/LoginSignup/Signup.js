@@ -2,15 +2,15 @@ import React, { Component, PropTypes } from 'react';
 import ButtonSignup from './ButtonSignup';
 import FormSignup from './FormSignup';
 import Logo from './Logo';
-import Wallpaper from '../Wallpaper';
+import Container from '../Container';
 
 const Signup = props => {
 	return (
-		<Wallpaper>
+		<Container>
 			<Logo {...props} />
 			<FormSignup {...props} />
 			<ButtonSignup {...props} />
-		</Wallpaper>
+		</Container>
 	);
 }
 

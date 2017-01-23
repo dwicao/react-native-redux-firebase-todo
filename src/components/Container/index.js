@@ -5,12 +5,13 @@ import * as todoActions from '../../actions/todoActions';
 import {
 	StyleSheet,
 	Image,
+	View,
 	Platform
 } from 'react-native';
 
 import bgSrc from '../../images/bg.jpg';
 
-class Wallpaper extends Component {
+class Container extends Component {
 	render() {
 		const {
 			children,
@@ -36,10 +37,20 @@ class Wallpaper extends Component {
 				visibilityFilter,
 			});
 
+		if (this.props.wallpaper) {
+			return (
+				<Image style={[this.props.style, styles.picture]}
+						source={this.props.source}
+				>
+					{renderChildren}
+				</Image>
+			);
+		}
+
 		return (
-			<Image style={styles.picture} source={bgSrc}>
+			<View style={[this.props.style, styles.view]}>
 				{renderChildren}
-			</Image>
+			</View>
 		);
 	}
 }
@@ -54,9 +65,20 @@ const styles = StyleSheet.create({
 		resizeMode: 'cover',
 		top: statusbarTop,
 	},
+	view: {
+		top: statusbarTop,
+	}
 });
 
-Wallpaper.propTypes = {
+Container.defaultProps = {
+	source: bgSrc,
+	wallpaper: true,
+};
+
+Container.propTypes = {
+	style: PropTypes.number,
+	source: PropTypes.number,
+	wallpaper: PropTypes.bool,
 	todos: PropTypes.array.isRequired,
 	actions: PropTypes.object.isRequired,
 	formData: PropTypes.object.isRequired,
@@ -77,4 +99,4 @@ function mapDispatchToProps(dispatch) {
 	};
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Wallpaper);
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
