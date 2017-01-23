@@ -34,6 +34,7 @@ const AddTodo = props => {
 		<View style={styles.container}>
 			<TextInput style={styles.textInput}
 				autoCorrect={false}
+				maxLength={200}
 				placeholder='Add an item...'
 				placeholderTextColor='gray'
 				underlineColorAndroid='transparent'

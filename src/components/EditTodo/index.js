@@ -35,6 +35,7 @@ const EditTodo = props => {
 				<TextInput style={styles.textInput}
 					onChangeText={_onChangeText}
 					autoCapitalize='none'
+					maxLength={200}
 					autoCorrect={false}
 					multiline={true}>
 						<Text style={styles.text}>{text}</Text>
