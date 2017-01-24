@@ -1,6 +1,10 @@
 import * as types from '../actions/actionTypes';
 
-export default function userDataReducer(state = {}, action) {
+const initialState = {
+  email: '',
+};
+
+export default function userDataReducer(state = initialState, action) {
   switch(action.type) {
 
     case types.CHANGE_USER_DATA:

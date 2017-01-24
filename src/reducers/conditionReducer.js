@@ -1,6 +1,10 @@
 import * as types from '../actions/actionTypes';
 
-export default function conditionReducer(state = {}, action) {
+const initialState = {
+  isLoading: false,
+}
+
+export default function conditionReducer(state = initialState, action) {
   switch(action.type) {
 
     case types.CHANGE_CONDITION:

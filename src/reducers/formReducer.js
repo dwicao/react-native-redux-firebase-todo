@@ -1,6 +1,13 @@
 import * as types from '../actions/actionTypes';
 
-export default function formReducer(state = {}, action) {
+const initialState = {
+  emailLogin: '',
+  emailSignup: '',
+  passwordLogin: '',
+  passwordSignup: '',
+};
+
+export default function formReducer(state = initialState, action) {
   switch(action.type) {
 
     case types.CHANGE_EMAIL_LOGIN:
