@@ -12,7 +12,7 @@ const Logo = props => {
 	return (
 		<View style={styles.container}>
 			<Image source={logoImg} style={styles.image} />
-			<Text style={styles.text}>REACT NATIVE</Text>
+			<Text style={styles.text}>MY TODO</Text>
 		</View>
 	);
 }
