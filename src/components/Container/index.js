@@ -20,6 +20,7 @@ class Container extends Component {
 			formData,
 			visibilityFilter,
 			userData,
+			condition,
 		} = this.props;
 
 		const renderChildren = Array.isArray(children) ?
@@ -30,6 +31,7 @@ class Container extends Component {
 				formData,
 				visibilityFilter,
 				userData,
+				condition,
 			}))
 			:
 			React.cloneElement(children, {
@@ -38,6 +40,7 @@ class Container extends Component {
 				formData,
 				visibilityFilter,
 				userData,
+				condition,
 			});
 
 		if (this.props.wallpaper) {
@@ -87,6 +90,7 @@ Container.propTypes = {
 	formData: PropTypes.object.isRequired,
 	visibilityFilter: PropTypes.string.isRequired,
 	userData: PropTypes.object.isRequired,
+	condition: PropTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
@@ -95,6 +99,7 @@ function mapStateToProps(state) {
 		formData: state.formData,
 		visibilityFilter: state.visibilityFilter,
 		userData: state.userData,
+		condition: state.condition,
 	};
 }
 

@@ -87,7 +87,9 @@ const ControlPanel = props => {
         {`${_getTotalTodos()} Total Todos\n`}
       </Text>
       <View style={styles.buttonWrapper}>
-        <TouchableOpacity onPress={_onPress} style={styles.buttonLogout}>
+        <TouchableOpacity onPress={_onPress}
+          activeOpacity={0.7}
+          style={styles.buttonLogout}>
           <Text style={styles.logoutText}>LOGOUT</Text>
         </TouchableOpacity>
       </View>

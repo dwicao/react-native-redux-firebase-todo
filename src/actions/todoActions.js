@@ -130,6 +130,13 @@ export function changeUserData(payload) {
   }
 }
 
+export function changeCondition(payload) {
+  return {
+    type: types.CHANGE_CONDITION,
+    payload
+  }
+}
+
 export function addTodo(payload) {
   return {
     type: types.ADD_TODO,

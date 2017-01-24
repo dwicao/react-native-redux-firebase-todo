@@ -22,18 +22,17 @@ export default class ButtonLogin extends Component {
 	constructor() {
 		super();
 
-		this.state = {
-			isLoading: false,
-		};
-
 		this.buttonAnimated = new Animated.Value(0);
 		this._onPress = this._onPress.bind(this);
 	}
 
 	_onPress() {
-		if (this.state.isLoading) return;
+		const { todos, actions, formData, condition } = this.props;
+		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
 
-		this.setState({ isLoading: true });
+		if (condition.isLoading) return;
+
+		actions.changeCondition({ isLoading: true });
 		Animated.timing(
 			this.buttonAnimated,
 			{
@@ -42,9 +41,6 @@ export default class ButtonLogin extends Component {
 				easing: Easing.linear
 			}
 		).start();
-
-		const { todos, actions, formData } = this.props;
-		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
 
 		userLogin
 			.then(snapshot => {
@@ -56,7 +52,7 @@ export default class ButtonLogin extends Component {
 				Alert.alert(JSON.stringify(error.message));
 			})
 			.then(() => {
-				this.setState({ isLoading: false });
+				actions.changeCondition({ isLoading: false });
 				this.buttonAnimated.setValue(0);
 				actions.changeEmailLogin('');
 				actions.changePasswordLogin('');
@@ -64,6 +60,8 @@ export default class ButtonLogin extends Component {
 	}
 
 	render() {
+		const { todos, actions, formData, condition } = this.props;
+
 		const changeWidth = this.buttonAnimated.interpolate({
 	    inputRange: [0, 1],
 	    outputRange: [DEVICE_WIDTH - MARGIN, MARGIN]
@@ -75,7 +73,7 @@ export default class ButtonLogin extends Component {
 					<TouchableOpacity style={styles.button}
 						onPress={this._onPress}
 						activeOpacity={1} >
-							{this.state.isLoading ?
+							{condition.isLoading ?
 								<Image source={spinner} style={styles.image} />
 								:
 								<Text style={styles.text}>LOGIN</Text>
