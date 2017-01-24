@@ -1,7 +1,6 @@
 import * as types from './actionTypes';
 import { Alert } from 'react-native';
 import firebase, {firebaseRef} from '../firebase';
-import { Actions, ActionConst } from 'react-native-router-flux';
 
 
 export function fetchTodos(uid) {
@@ -92,9 +91,7 @@ export function startLogin(email, password) {
 
 export function startLogout() {
   return (dispatch, getState) => {
-    return firebase.auth().signOut().then(() => {
-      Actions.loginScreen({type: ActionConst.RESET});
-    });
+    return firebase.auth().signOut();
   };
 }
 

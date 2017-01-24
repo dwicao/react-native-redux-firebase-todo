@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Dimensions from 'Dimensions';
+import { Actions, ActionConst } from 'react-native-router-flux';
 import {
   View,
   Text,
@@ -19,7 +20,14 @@ const ControlPanel = props => {
     userData,
   } = props;
 
-  const _onPress = () => Alert.alert('YAYAYA');
+  const _onPress = () => {
+    actions.startLogout().then(() => {
+      actions.changeUserData({ email: null });
+      Actions.loginScreen({ type: ActionConst.RESET });
+    }, error => {
+      Alert.alert(JSON.stringify(error.message));
+    });
+  };
 
   const _getActiveTodo = () => {
     let totalActiveTodo = 0;
