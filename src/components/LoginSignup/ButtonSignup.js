@@ -106,6 +106,7 @@ export default class ButtonSignup extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		marginTop: -10,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 	},
