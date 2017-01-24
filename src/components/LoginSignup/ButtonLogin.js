@@ -48,6 +48,7 @@ export default class ButtonLogin extends Component {
 
 		userLogin
 			.then(snapshot => {
+				actions.changeUserData({ email: snapshot.email });
 				actions.deleteAllTodo();
 				actions.fetchTodos(snapshot.uid);
 				Actions.mainScreen();

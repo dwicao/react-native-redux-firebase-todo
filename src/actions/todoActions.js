@@ -126,6 +126,13 @@ export function changePasswordSignup(passwordSignup) {
   }
 }
 
+export function changeUserData(payload) {
+  return {
+    type: types.CHANGE_USER_DATA,
+    payload
+  }
+}
+
 export function addTodo(payload) {
   return {
     type: types.ADD_TODO,

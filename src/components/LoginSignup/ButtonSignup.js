@@ -63,6 +63,7 @@ export default class ButtonSignup extends Component {
 					email: formData.emailSignup,
 				});
 
+				actions.changeUserData({ email: snapshot.email });
 				actions.deleteAllTodo();
 				actions.fetchTodos(snapshot.uid);
 				Actions.mainScreen();
