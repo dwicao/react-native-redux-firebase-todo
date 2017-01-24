@@ -12,7 +12,54 @@ import {
 import logoSrc from '../../images/logo.png';
 
 const ControlPanel = props => {
+  const {
+    todos,
+    actions,
+    formData,
+    userData,
+  } = props;
+
   const _onPress = () => Alert.alert('YAYAYA');
+
+  const _getActiveTodo = () => {
+    let totalActiveTodo = 0;
+
+    todos.map(todo => {
+      if (!todo.isDone) {
+        totalActiveTodo++;
+      }
+    });
+
+    return totalActiveTodo;
+  }
+
+  const _getCompletedTodo = () => {
+    let totalCompletedTodo = 0;
+
+    todos.map(todo => {
+      if (!!todo.isDone) {
+        totalCompletedTodo++;
+      }
+    });
+
+    return totalCompletedTodo;
+  }
+
+  const _getFavoritedTodo = () => {
+    let totalFavoritedTodo = 0;
+
+    todos.map(todo => {
+      if (!!todo.isStarred) {
+        totalFavoritedTodo++;
+      }
+    });
+
+    return totalFavoritedTodo;
+  }
+
+  const _getTotalTodos = () => {
+    return todos.length;
+  }
 
   return (
     <View style={styles.container}>
@@ -20,6 +67,13 @@ const ControlPanel = props => {
       <Text style={styles.header}>
         Have a nice day,{'\n'}
         {props.userData.email}
+      </Text>
+      <Text style={styles.stats}>
+        Your Stats So Far :{'\n'}
+        {`${_getActiveTodo()} Active\n`}
+        {`${_getCompletedTodo()} Completed\n`}
+        {`${_getFavoritedTodo()} Favorited\n`}
+        {`${_getTotalTodos()} Total Todos\n`}
       </Text>
       <View style={styles.buttonWrapper}>
         <TouchableOpacity onPress={_onPress} style={styles.buttonLogout}>
@@ -47,6 +101,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
     color: 'black',
     textAlign: 'center',
+  },
+  stats: {
+    alignSelf: 'flex-start',
+    marginLeft: 20,
+    marginTop: 50,
+    color: 'black',
+    textAlign: 'left',
   },
   buttonWrapper: {
     flex: 1,
