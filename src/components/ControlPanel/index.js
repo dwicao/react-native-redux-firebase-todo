@@ -72,12 +72,15 @@ const ControlPanel = props => {
   return (
     <View style={styles.container}>
       <Image style={styles.logo} source={logoSrc} />
+      <Text style={styles.logoDescription}>
+        My Todo
+      </Text>
       <Text style={styles.header}>
         Have a nice day,{'\n'}
         {props.userData.email}
       </Text>
       <Text style={styles.stats}>
-        Your Stats So Far :{'\n'}
+        Statistics :{'\n'}
         {`${_getActiveTodo()} Active\n`}
         {`${_getCompletedTodo()} Completed\n`}
         {`${_getFavoritedTodo()} Favorited\n`}
@@ -105,16 +108,23 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
   },
+  logoDescription: {
+    marginTop: 10,
+    fontWeight: 'bold',
+    letterSpacing: 1,
+    color: 'white',
+  },
   header: {
     marginTop: 20,
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
   },
   stats: {
     alignSelf: 'flex-start',
+    lineHeight: 30,
     marginLeft: 20,
     marginTop: 50,
-    color: 'black',
+    color: 'white',
     textAlign: 'left',
   },
   buttonWrapper: {
@@ -128,11 +138,12 @@ const styles = StyleSheet.create({
     width: DEVICE_WIDTH * 0.7,
     height: 40,
     borderTopWidth: 1,
-    borderColor: '#cccccc',
+    borderColor: '#999999',
   },
   logoutText: {
     textAlign: 'center',
-    color: 'black',
+    fontWeight: 'bold',
+    color: 'white',
     letterSpacing: 1,
   }
 });
