@@ -27,6 +27,19 @@ export default class ButtonSignup extends Component {
 		this._onPress = this._onPress.bind(this);
 	}
 
+	componentDidMount() {
+		const { todos, actions, formData, condition } = this.props;
+		actions.changeCondition({ isLoading: false });
+	}
+
+	componentWillUnmount() {
+		const { todos, actions, formData, condition } = this.props;
+		actions.changeCondition({ isLoading: false });
+		this.buttonAnimated.setValue(0);
+		actions.changeEmailLogin('');
+		actions.changePasswordLogin('');
+	}
+
 	_onPress() {
 		const { todos, actions, formData, condition } = this.props;
 		const userSignup = actions.startSignup(formData.emailSignup, formData.passwordSignup);
@@ -65,12 +78,8 @@ export default class ButtonSignup extends Component {
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));
-			})
-			.then(() => {
 				actions.changeCondition({ isLoading: false });
 				this.buttonAnimated.setValue(0);
-				actions.changeEmailSignup('');
-				actions.changePasswordSignup('');
 			});
 	}
 

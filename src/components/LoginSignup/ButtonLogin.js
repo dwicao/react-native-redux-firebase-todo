@@ -26,6 +26,19 @@ export default class ButtonLogin extends Component {
 		this._onPress = this._onPress.bind(this);
 	}
 
+	componentDidMount() {
+		const { todos, actions, formData, condition } = this.props;
+		actions.changeCondition({ isLoading: false });
+	}
+
+	componentWillUnmount() {
+		const { todos, actions, formData, condition } = this.props;
+		actions.changeCondition({ isLoading: false });
+		this.buttonAnimated.setValue(0);
+		actions.changeEmailLogin('');
+		actions.changePasswordLogin('');
+	}
+
 	_onPress() {
 		const { todos, actions, formData, condition } = this.props;
 		const userLogin = actions.startLogin(formData.emailLogin, formData.passwordLogin);
@@ -50,12 +63,8 @@ export default class ButtonLogin extends Component {
 				Actions.mainScreen();
 			}, error => {
 				Alert.alert(JSON.stringify(error.message));
-			})
-			.then(() => {
 				actions.changeCondition({ isLoading: false });
 				this.buttonAnimated.setValue(0);
-				actions.changeEmailLogin('');
-				actions.changePasswordLogin('');
 			});
 	}
 
