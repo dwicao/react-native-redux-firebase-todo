@@ -15,7 +15,7 @@ const Main = props =>  {
 	      tapToClose={true}
 	      openDrawerOffset={0.3} // 20% gap on the right side of drawer
 	      panCloseMask={0.3}
-	      panOpenMask={0.2}
+	      panOpenMask={0.1}
 	      closedDrawerOffset={-3}
 	      styles={drawerStyles}
 	      tweenHandler={(ratio) => ({
