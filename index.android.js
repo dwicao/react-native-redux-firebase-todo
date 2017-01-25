@@ -9,9 +9,9 @@ import * as actions from './src/actions/todoActions';
 const store = configureStore();
 
 class todo extends Component {
-  // componentDidMount() {
-  //   codePush.sync({installMode: codePush.InstallMode.IMMEDIATE});
-  // }
+  componentDidMount() {
+    codePush.sync({installMode: codePush.InstallMode.IMMEDIATE});
+  }
 
   render() {
     return (
@@ -22,4 +22,4 @@ class todo extends Component {
   }
 }
 
-AppRegistry.registerComponent( 'todo', () => todo );
+AppRegistry.registerComponent( 'todo', () => codePush(todo) );

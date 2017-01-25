@@ -1,4 +1,4 @@
-package com.dwicao.todo;
+package com.dwicao.mytodo;
 
 import com.facebook.react.ReactActivity;
 
