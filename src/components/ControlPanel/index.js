@@ -75,17 +75,29 @@ const ControlPanel = props => {
       <Text style={styles.logoDescription}>
         My Todo
       </Text>
-      <Text style={styles.header}>
-        Have a nice day,{'\n'}
-        {props.userData.email}
-      </Text>
-      <Text style={styles.stats}>
-        Statistics :{'\n'}
-        {`${_getActiveTodo()} Active\n`}
-        {`${_getCompletedTodo()} Completed\n`}
-        {`${_getFavoritedTodo()} Favorited\n`}
-        {`${_getTotalTodos()} Total Todos\n`}
-      </Text>
+      <View style={styles.headerWrapper}>
+        <Text style={styles.header}>
+          Have a nice day,{'\n'}
+          {props.userData.email}
+        </Text>
+      </View>
+      <View style={styles.statsWrapper}>
+        <Text style={styles.statsHeader}>
+          Statistics
+        </Text>
+        <Text style={styles.stats}>
+          {`${_getActiveTodo()} Active\n`}
+        </Text>
+        <Text style={styles.stats}>
+          {`${_getCompletedTodo()} Completed\n`}
+        </Text>
+        <Text style={styles.stats}>
+          {`${_getFavoritedTodo()} Favorited\n`}
+        </Text>
+        <Text style={[styles.stats, styles.statsLastChild]}>
+          {`${_getTotalTodos()} Total Todos\n`}
+        </Text>
+      </View>
       <View style={styles.buttonWrapper}>
         <TouchableOpacity onPress={_onPress}
           activeOpacity={0.7}
@@ -112,22 +124,44 @@ const styles = StyleSheet.create({
   },
   logoDescription: {
     marginTop: 10,
+    fontSize: 20,
     fontWeight: 'bold',
     letterSpacing: 1,
     color: 'white',
   },
+  headerWrapper: {
+    marginTop: 20,
+    borderTopWidth: 0.5,
+    borderColor: 'white',
+    width: DEVICE_WIDTH * 0.6,
+  },
   header: {
     marginTop: 20,
     color: 'white',
+    fontSize: 14,
     textAlign: 'center',
+  },
+  statsWrapper: {
+    marginTop: 20,
+    marginBottom: 50,
+    borderTopWidth: 0.5,
+    borderBottomWidth: 0.5,
+    borderColor: 'white',
+    width: DEVICE_WIDTH * 0.6,
+    alignItems: 'center',
+  },
+  statsHeader: {
+    marginVertical: 10,
+    fontSize: 22,
+    color: 'white',
   },
   stats: {
     alignSelf: 'flex-start',
-    lineHeight: 30,
-    marginLeft: 20,
-    marginTop: 50,
     color: 'white',
     textAlign: 'left',
+  },
+  statsLastChild: {
+    marginBottom: 10,
   },
   buttonWrapper: {
     flex: 1,
