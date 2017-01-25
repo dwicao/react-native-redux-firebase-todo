@@ -139,13 +139,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     width: DEVICE_WIDTH * 0.7,
     height: 40,
-    borderTopWidth: 1,
-    borderColor: '#999999',
+    borderLeftWidth: 3,
+    borderColor: '#D25740',
+    backgroundColor: '#cccccc',
   },
   logoutText: {
     textAlign: 'center',
     fontWeight: 'bold',
-    color: 'white',
+    color: 'gray',
     letterSpacing: 1,
   }
 });
