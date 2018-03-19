@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "firebase": "3.6.5",
+    "prop-types": "^15.6.1",
     "react": "15.4.1",
     "react-native": "0.39.2",
     "react-native-code-push": "^1.16.1-beta",

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 import Dimensions from 'Dimensions';
 import { Actions, ActionConst } from 'react-native-router-flux';
 import {
